@@ -1,4 +1,4 @@
 const someStack = [];
 // good
-someStack.push('abracadabra');
+someStack.push('abcd');
 console.log(someStack);
