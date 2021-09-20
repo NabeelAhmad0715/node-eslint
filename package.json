@@ -1,0 +1,37 @@
+{
+  "name": "eslint",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "lint-staged": "^11.1.2",
+    "nodemon": "^2.0.12"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "line-staged"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nabeelahmad0715/node-eslint"
+  },
+  "line-staged": {
+    "*.js": [
+      "npm run lint:fix",
+      "git add"
+    ]
+  },
+  "devDependencies": {
+    "eslint-plugin-import": "^2.24.2",
+    "husky": "^7.0.2"
+  },
+  "scripts": {
+    "server": "nodemon index.js",
+    "prepare": "husky install"
+  },
+  "author": "",
+  "license": "ISC"
+}
