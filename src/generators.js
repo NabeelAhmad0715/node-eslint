@@ -27,6 +27,10 @@ function* fibonacci() {
   }
 }
 
+function SIGN_UP(params) {
+  
+}
+
 const sequence = fibonacci();
 console.log('\nFibonacci Series'); // 0
 console.log(sequence.next().value); // 0

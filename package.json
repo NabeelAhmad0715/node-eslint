@@ -1,9 +1,11 @@
 {
   "name": "eslint",
   "version": "1.0.0",
-  "main": "src/index.js",
+  "main": "app.js",
   "dependencies": {
     "axios": "^0.21.4",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-node": "^4.1.0",
@@ -14,8 +16,13 @@
     "eslint-plugin-react": "^7.25.3",
     "express": "^4.17.1",
     "lint-staged": "^11.1.2",
+    "mysql2": "^2.3.0",
     "nodemon": "^2.0.12",
-    "prettier": "^2.4.1"
+    "pg": "^8.7.1",
+    "pg-hstore": "^2.3.4",
+    "prettier": "^2.4.1",
+    "sequelize": "^6.6.5",
+    "sequelize-cli": "^6.2.0"
   },
   "husky": {
     "hooks": {
@@ -37,7 +44,16 @@
     "husky": "^7.0.2"
   },
   "scripts": {
-    "server": "nodemon index.js",
+    "config": "node config/config.json",
+    "_migrate": "sequelize db:migrate",
+    "_migrate:status": "sequelize db:migrate:status",
+    "_migrate:undo": "sequelize db:migrate:undo",
+    "_seed": "sequelize db:seed:all",
+    "migrate": "npm-run-all config _migrate",
+    "migrate:status": "npm-run-all config _migrate:status",
+    "migrate:undo": "npm-run-all config _migrate:undo",
+    "seed": "npm-run-all config _seed",
+    "server": "nodemon app.js",
     "prepare": "husky install",
     "lint": "eslint src"
   },
